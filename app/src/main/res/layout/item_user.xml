@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.suraj.locofftest.model.Users" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            app:cardBackgroundColor="@android:color/darker_gray"
+            app:cardCornerRadius="3dp"
+            app:cardPreventCornerOverlap="false">
+
+            <ProgressBar
+                android:id="@+id/movieProgress"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_16sdp"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:id="@+id/movie_poster"
+                android:layout_width="@dimen/_72sdp"
+                android:layout_height="@dimen/_96sdp"
+                app:progressUser="@{movieProgress}"
+                app:imageUser="@{model.avatar}"
+                tools:ignore="ContentDescription" />
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_16sdp"
+            android:paddingEnd="@dimen/_16sdp"
+            android:paddingStart="@dimen/_72sdp"
+            android:paddingTop="@dimen/_8sdp">
+
+            <TextView
+                android:id="@+id/user_name"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:maxLines="1"
+                app:firstName="@{model.first_name}"
+                app:lastName="@{model.last_name}"
+                tools:text="User Name" />
+
+
+            <TextView
+                android:id="@+id/user_email"
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:alpha="0.7"
+                android:maxLines="1"
+                android:text="@{model.email}"
+                android:textStyle="bold"
+                tools:text="xyz@test.com" />
+
+            <TextView
+                android:id="@+id/user_desc"
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_24sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                app:firstName="@{model.first_name}"
+                app:userId="@{model.id}"
+                tools:text="Nowadays, user engagement is considered one of the most important metrics for the success of your app" />
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+</layout>
